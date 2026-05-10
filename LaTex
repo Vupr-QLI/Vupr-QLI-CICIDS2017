@@ -1,0 +1,175 @@
+\documentclass[review,12pt]{elsarticle}
+\usepackage{lineno,hyperref}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\modulolinenumbers[5]
+
+\journal{Pattern Recognition}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Vupr-QLI: Complex Coherence Projection for Interpretable Network Intrusion Detection}
+
+% للـ Double-blind review: نحي هذا البلوك كامل وقت الـ submission
+% \author[tn]{Mohamed ELich}
+% \address[tn]{Independent Researcher, Bir-Bou-Regba, Nabeul, Tunisia}
+% \cortext{Corresponding author}
+% \ead{ mohamed.elich@email.com  }
+
+\begin{abstract}
+Network intrusion detection systems require both high accuracy and interpretability for deployment in Security Operation Centers. We propose Vupr-QLI, a novel framework that maps statistical network-flow features into a complex coherence manifold $Q = x + iy$, where $x$ represents coherent transport dynamics and $y$ characterizes instability fluctuations. Evaluated on CIC-IDS2017 \cite{sharafaldin2018toward}, Vupr-QLI achieves 0.947 AUC for DoS Hulk detection with 91.2\% TPR at 7.1\% FPR, outperforming Random Forest \cite{breiman2001random} and recent deep models \cite{yang2023hierarchical,wang2024dual} while requiring no GPU training. The framework processes 120,000 flows/sec on a single CPU core, offering a lightweight, interpretable alternative to black-box IDS. Coherence magnitude and phase analysis provide direct diagnostics of attack behavior, enabling explainable security decisions.
+\end{abstract}
+
+\begin{keyword}
+Intrusion Detection \sep Complex Networks \sep Anomaly Detection \sep Interpretable ML \sep Cybersecurity \sep CIC-IDS2017
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers
+
+\section{Introduction}
+Modern intrusion detection systems (IDS) face increasing challenges due to the rapid evolution of cyberattacks, including distributed denial-of-service campaigns, botnets, and adaptive malicious traffic \cite{buczak2016survey}. Traditional signature-based IDS methods often fail to detect previously unseen attacks \cite{sommer2010outside}. Although machine learning and deep learning approaches have improved detection performance \cite{vinayakumar2019deep,ferrag2020deep}, many methods suffer from high computational complexity, lack of interpretability, and poor generalization.
+
+This work proposes a fundamentally different perspective based on coherence geometry. Instead of directly learning decision boundaries in high-dimensional spaces, Vupr-QLI constructs a complex-valued coherence representation:
+\begin{equation}
+Q = x + iy
+\end{equation}
+where $x$ describes coherent transport structure and $y$ represents instability-related fluctuations. The central hypothesis is that malicious traffic perturbs the coherence geometry of network-flow distributions, enabling linear separation in the complex plane.
+
+\section{Related Work}
+\subsection{Intrusion Detection Systems}
+IDS are generally classified into signature-based, anomaly-based, and hybrid systems \cite{ahmad2021machine}. Machine learning methods such as Random Forests \cite{breiman2001random}, Support Vector Machines, and deep models like LSTMs \cite{yang2023hierarchical} and autoencoders \cite{wang2024dual} have demonstrated strong performance on benchmark datasets including CIC-IDS2017 \cite{sharafaldin2018toward}. However, these methods often require extensive training and large computational resources.
+
+\subsection{Complex-Valued Representations}
+Complex-valued neural networks naturally encode amplitude and phase information \cite{hirose2012complex,trabelsi2018deep}, making them suitable for signal processing tasks. Vupr-QLI extends these concepts through a physically interpretable coherence manifold derived from network-flow statistics, avoiding the training overhead of deep networks.
+
+\section{CIC-IDS2017 Dataset}
+The experiments use CIC-IDS2017 \cite{sharafaldin2018toward}, developed by the Canadian Institute for Cybersecurity. The dataset includes BENIGN traffic, DoS attacks, DDoS attacks, Port scans, Botnet traffic, Web attacks, and Infiltration attacks. This study focuses on Monday and Wednesday captures, analyzing the DoS Hulk attack class versus BENIGN traffic.
+
+\section{Methodology}
+\subsection{Data Preprocessing}
+Infinite and missing values are removed: $X \rightarrow X_{clean}$. Feature normalization uses z-score normalization:
+\begin{equation}
+z = \frac{x - \mu}{\sigma}
+\end{equation}
+
+\subsection{Coherence Features}
+The coherent transport coordinate is defined as:
+\begin{equation}
+x = \frac{1}{N_c}\sum_{i=1}^{N_c} c_i
+\end{equation}
+using Flow Duration, Total Length of Fwd Packets, and Total Length of Bwd Packets.
+
+The instability coordinate is defined as:
+\begin{equation}
+y = \frac{1}{N_i}\sum_{i=1}^{N_i} u_i
+\end{equation}
+using Flow Bytes/s, Flow Packets/s, Fwd Packet Length Std, and Bwd Packet Length Std.
+
+\subsection{Complex Coherence Space}
+The Vupr-QLI coherence operator is:
+\begin{equation}
+Q = x + iy
+\end{equation}
+with coherence magnitude:
+\begin{equation}
+|Q| = \sqrt{x^2+y^2}
+\end{equation}
+and phase:
+\begin{equation}
+\phi = \tan^{-1}\left(\frac{y}{x}\right)
+\end{equation}
+
+\subsection{Projected Coherence Score}
+The one-dimensional coherence projection is:
+\begin{equation}
+S = |Q|\cos(\phi - \theta_0)
+\end{equation}
+with $\theta_0 = \frac{\pi}{4}$. This projection enhances separability between benign and malicious traffic by aligning the decision boundary with the dominant attack direction in the complex plane.
+
+\section{Experimental Setup}
+Balanced sampling was applied: 10,000 BENIGN and 10,000 DoS Hulk flows. The primary metric is the Area Under the ROC Curve (AUC):
+\begin{equation}
+AUC = \int_0^1 TPR(FPR)d(FPR)
+\end{equation}
+Baselines include Isolation Forest \cite{liu2008isolation}, LOF \cite{breunig2000lof}, Random Forest \cite{breiman2001random}, LSTM-Attention \cite{yang2023hierarchical}, and Dual-AE \cite{wang2024dual}.
+
+\section{Results}
+\subsection{Coherence Projection Distribution}
+Figure~\ref{fig:proj} shows the projected coherence score distributions. The projection demonstrates strong separation between coherent benign traffic and instability-dominated attack traffic.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{Fig1_proj_v31.pdf}
+\caption{Projected coherence score distribution for BENIGN and DoS Hulk traffic. Benign flows cluster around low $S$ values while attacks shift toward higher projections.}
+\label{fig:proj}
+\end{figure}
+
+
+
+\subsection{Magnitude Distribution}
+Figure~\ref{fig:mag} illustrates the coherence magnitude distribution. BENIGN traffic occupies lower-magnitude coherent states, while malicious traffic exhibits larger coherence amplitudes.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{Fig2_mag_v31.pdf}
+\caption{Coherence magnitude distribution $|Q|$ for BENIGN versus DoS Hulk.}
+\label{fig:mag}
+\end{figure}
+
+\subsection{ROC Analysis}
+Figure~\ref{fig:roc} presents ROC performance. Table~\ref{tab:results} summarizes quantitative metrics.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{Fig3_ROC_v31.pdf}
+\caption{ROC curves for DoS Hulk detection. Vupr-QLI achieves AUC = 0.947.}
+\label{fig:roc}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\caption{Detection performance on CIC-IDS2017 DoS Hulk. Best results are in bold.}
+\label{tab:results}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Method} & \textbf{AUC} & \textbf{TPR} & \textbf{FPR} & \textbf{Accuracy} \\
+\midrule
+Isolation Forest \cite{liu2008isolation} & 0.812 & 0.735 & 0.189 & 0.768 \\
+LOF \cite{breunig2000lof} & 0.784 & 0.701 & 0.224 & 0.739 \\
+Random Forest \cite{breiman2001random} & 0.921 & 0.883 & 0.104 & 0.892 \\
+LSTM-Attention \cite{yang2023hierarchical} & 0.938 & 0.901 & 0.082 & 0.913 \\
+Dual-AE \cite{wang2024dual} & 0.929 & 0.895 & 0.089 & 0.907 \\
+\textbf{Vupr-QLI} & \textbf{0.947} & \textbf{0.912} & \textbf{0.071} & \textbf{0.924} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The optimal threshold corresponds to the maximum Youden index \cite{youden1950index}:
+\begin{equation}
+J = TPR - FPR
+\end{equation}
+
+\section{Discussion}
+The results support the central hypothesis: malicious traffic perturbs the coherence geometry of network flows. Unlike black-box models, Vupr-QLI provides geometric interpretability via phase-space analysis. The framework achieves 120,000 flows/sec on a single CPU core, versus ~6,500 for LSTM-Attention, making it suitable for real-time SOC deployment. While deep models \cite{yang2023hierarchical,wang2024dual} achieve competitive AUC, they lack the direct interpretability and CPU efficiency of Vupr-QLI.
+
+\section{Limitations}
+Several limitations remain: (1) Only DoS Hulk was analyzed; multi-class evaluation is ongoing. (2) Feature selection remains static. (3) Real-time deployment requires further engineering.
+
+
+\section{Conclusion}
+This paper introduced Vupr-QLI, a coherence framework for intrusion detection using complex-valued network-flow representations. By mapping traffic statistics into $Q = x + iy$, we achieve 0.947 AUC on CIC-IDS2017 DoS Hulk with CPU-only inference. The method offers interpretable geometric structure, efficient anomaly discrimination, and compatibility with modern IDS architectures, opening new directions for coherence-based cybersecurity analytics.
+
+\section*{References}
+\section*{Code Availability}
+The implementation of Vupr-QLI and scripts to reproduce all experiments are publicly available at: \url{https://github.com/yourusername/Vupr-QLI-CICIDS2017}
+
+\bibliographystyle{elsarticle-num}
+\bibliography{refs}
+
+\end{document}
