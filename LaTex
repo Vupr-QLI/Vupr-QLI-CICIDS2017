@@ -167,7 +167,7 @@ This paper introduced Vupr-QLI, a coherence framework for intrusion detection us
 
 \section*{References}
 \section*{Code Availability}
-The implementation of Vupr-QLI and scripts to reproduce all experiments are publicly available at: \url{https://github.com/yourusername/Vupr-QLI-CICIDS2017}
+The implementation of Vupr-QLI and scripts to reproduce all experiments are publicly available at: https://github.com/Vupr-QLI/Vupr-QLI-CICIDS2017/
 
 \bibliographystyle{elsarticle-num}
 \bibliography{refs}
