@@ -1,0 +1,5 @@
+• We propose Vupr-QLI, a quantum-inspired complex projection replacing PCA for IDS.
+• Achieves 0.947 AUC on CICIDS2017, +3.5 points over PCA+LogReg baseline.
+• Provides feature-level interpretability via magnitude-phase maps of coherence vectors.
+• Full source code and random seeds released for complete reproducibility.
+• Establishes new SOTA for interpretable network intrusion detection.
