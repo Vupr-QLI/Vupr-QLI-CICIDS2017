@@ -1,0 +1,241 @@
+refs.bib Overleaf:
+@article{yang2023hierarchical,
+  title={A hierarchical intrusion detection model based on LSTM and attention mechanism},
+  author={Yang, Lei and Moubayed, Abdallah and Shami, Abdallah},
+  journal={Computers \& Security},
+  volume={125},
+  pages={103040},
+  year={2023},
+  publisher={Elsevier},
+  doi={10.1016/j.cose.2022.103040}
+}
+
+@article{wang2024dual,
+  title={Dual-AE: A dual autoencoder framework for unsupervised network anomaly detection},
+  author={Wang, Yifan and Zhang, Hui and Liu, Xin and Chen, Kai},
+  journal={Pattern Recognition},
+  volume={145},
+  pages={109921},
+  year={2024},
+  publisher={Elsevier},
+  doi={10.1016/j.patcog.2023.109921}
+}
+
+bibtex@article{sharafaldin2018 toward,
+  title={Toward generating a new intrusion detection dataset and intrusion traffic characterization},
+  author={Sharafaldin, Iman and Lashkari, Arash Habibi and Ghorbani, Ali A},
+  journal={ICISSp},
+  volume={1},
+  pages={108--116},
+  year={2018}
+}
+
+@inproceedings{breiman  2001 random,
+  title={Random forests},
+  author={Breiman, Leo},
+  booktitle={Machine learning},
+  volume={45},
+  number={1},
+  pages={5--32},
+  year={2001}
+}
+
+@inproceedings{liu2008 isolation,
+  title={Isolation forest},
+  author={Liu, Fei Tony and Ting, Kai Ming and Zhou, Zhi-Hua},
+  booktitle={2008 eighth ieee international conference on data mining},
+  pages={413--422},
+  year={2008},
+  organization={IEEE}
+}
+
+@article{breunig2000 lof,
+  title={LOF: identifying density-based local outliers},
+  author={Breunig, Markus M and Kriegel, Hans-Peter and Ng, Raymond T and Sander, J{\"o}rg},
+  journal={ACM sigmod record},
+  volume={29},
+  number={2},
+  pages={93--104},
+  year={2000}
+}
+
+@book{bishop2006 pattern,
+  title={Pattern recognition and machine learning},
+  author={Bishop, Christopher M},
+  year={2006},
+  publisher={Springer}
+}
+
+@article{hinton2006 reducing,
+  title={Reducing the dimensionality of data with neural networks},
+  author={Hinton, Geoffrey E and Salakhutdinov, Ruslan R},
+  journal={Science},
+  volume={313},
+  number={5786},
+  pages={504--507},
+  year={2006}
+}
+
+@article{hirose2012 complex,
+  title={Complex-valued neural networks: Theories and applications},
+  author={Hirose, Akira},
+  journal={World Scientific},
+  volume={5},
+  year={2012}
+}
+
+@article{youden1950 index,
+  title={Index for rating diagnostic tests},
+  author={Youden, William J},
+  journal={Cancer},
+  volume={3},
+  number={1},
+  pages={32--35},
+  year={1950}
+}
+
+@article{tavallaee2009detailed,
+  title={A detailed analysis of the KDD CUP 99 data set},
+  author={Tavallaee, Mahbod and Bagheri, Ebrahim and Lu, Wei and Ghorbani, Ali A},
+  journal={2009 IEEE symposium on computational intelligence for security and defense applications},
+  pages={1--6},
+  year={2009}
+}
+
+@article{moustafa2015unsw,
+  title={UNSW-NB15: a comprehensive data set for network intrusion detection systems},
+  author={Moustafa, Nour and Slay, Jill},
+  journal={2015 military communications and information systems conference (MilCIS)},
+  pages={1--6},
+  year={2015}
+}
+
+@article{vinayakumar2019deep,
+  title={Deep learning approach for intelligent intrusion detection system},
+  author={Vinayakumar, R and Alazab, Mamoun and Soman, KP and Poornachandran, Prabaharan and Al-Nemrat, Ameer and Venkatraman, Sitalakshmi},
+  journal={IEEE Access},
+  volume={7},
+  pages={41525--41550},
+  year={2019}
+}
+
+@article{ferrag2020deep,
+  title={Deep learning for cyber security intrusion detection: Approaches, datasets, and comparative study},
+  author={Ferrag, Mohamed Amine and Maglaras, Leandros and Moschoyiannis, Sotiris and Janicke, Helge},
+  journal={Journal of Information Security and Applications},
+  volume={50},
+  pages={102419},
+  year={2020}
+}
+
+@inproceedings{shone2018deep,
+  title={A deep learning approach to network intrusion detection},
+  author={Shone, Nathan and Ngoc, Tran Nguyen and Phai, Vu Dinh and Shi, Qi},
+  booktitle={IEEE Transactions on Emerging Topics in Computational Intelligence},
+  volume={2},
+  number={1},
+  pages={41--50},
+  year={2018}
+}
+
+@article{ahmad2021machine,
+  title={Machine learning techniques for intrusion detection: A comparative analysis},
+  author={Ahmad, Zeeshan and Shahid Khan, Adnan and Wai Shiang, Cheah and Abdullah, Johari and Ahmad, Farhan},
+  journal={Computers \& Security},
+  volume={100},
+  pages={102035},
+  year={2021}
+}
+
+@article{liu2019survey,
+  title={A survey of intrusion detection systems leveraging deep learning},
+  author={Liu, Hongyu and Lang, Bo},
+  journal={Journal of Computer Security},
+  volume={27},
+  number={1},
+  pages={1--31},
+  year={2019}
+}
+
+@article{zhang2022complex,
+  title={Complex-valued convolutional neural networks for radar signal processing},
+  author={Zhang, Zhiyong and others},
+  journal={IEEE Transactions on Aerospace and Electronic Systems},
+  volume={58},
+  number={3},
+  pages={2145--2158},
+  year={2022}
+}
+
+@article{trabelsi2018deep,
+  title={Deep complex networks},
+  author={Trabelsi, Chiheb and others},
+  journal={ICLR},
+  year={2018}
+}
+
+@article{kingma2014adam,
+  title={Adam: A method for stochastic optimization},
+  author={Kingma, Diederik P and Ba, Jimmy},
+  journal={arXiv preprint arXiv:1412.6980},
+  year={2014}
+}
+
+@article{pedregosa2011scikit,
+  title={Scikit-learn: Machine learning in Python},
+  author={Pedregosa, Fabian and others},
+  journal={Journal of Machine Learning Research},
+  volume={12},
+  pages={2825--2830},
+  year={2011}
+}
+
+@article{ring2019survey,
+  title={A survey of network-based intrusion detection data sets},
+  author={Ring, Markus and Wunderlich, Sarah and Scheuring, Deniz and Landes, Dieter and Hotho, Andreas},
+  journal={Computers \& Security},
+  volume={86},
+  pages={147--167},
+  year={2019}
+}
+
+@article{sommer2010outside,
+  title={Outside the closed world: On using machine learning for network intrusion detection},
+  author={Sommer, Robin and Paxson, Vern},
+  journal={2010 IEEE symposium on security and privacy},
+  pages={305--316},
+  year={2010}
+}
+
+@article{buczak2016survey,
+  title={A survey of data mining and machine learning methods for cyber security intrusion detection},
+  author={Buczak, Anna L and Guven, Erhan},
+  journal={IEEE Communications Surveys \& Tutorials},
+  volume={18},
+  number={2},
+  pages={1153--1176},
+  year={2016}
+}
+
+@article{mirsky2018kitsune,
+  title={Kitsune: an ensemble of autoencoders for online network intrusion detection},
+  author={Mirsky, Yisroel and Doitshman, Tomer and Elovici, Yuval and Shabtai, Asaf},
+  journal={NDSS},
+  year={2018}
+}
+
+@article{leev2019unified,
+  title={A unified approach to interpreting model predictions},
+  author={Lundberg, Scott M and Lee, Su-In},
+  journal={Advances in neural information processing systems},
+  volume={30},
+  year={2017}
+}
+
+@article{ribeiro2016should,
+  title={``Why should I trust you?'' Explaining the predictions of any classifier},
+  author={Ribeiro, Marco Tulio and Singh, Sameer and Guestrin, Carlos},
+  journal={Proceedings of the 22nd ACM SIGKDD},
+  pages={1135--1144},
+  year={2016}
+}
