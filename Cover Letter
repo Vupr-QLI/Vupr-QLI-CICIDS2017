@@ -1,0 +1,18 @@
+Dear Editor,
+
+We are submitting our manuscript titled "Vupr-QLI: Complex Coherence Projection for Interpretable Network Intrusion Detection" for consideration in Pattern Recognition.
+
+**Novelty and Significance:** We propose a new mathematical framework that replaces linear PCA with a quantum-inspired complex projection. Our method, Vupr-QLI, achieves 0.947 AUC on CICIDS2017, outperforming PCA+Logistic Regression by 3.5 points while providing feature-level interpretability via the magnitude-phase map of coherence vectors. This addresses the critical trade-off between accuracy and interpretability in security applications.
+
+**Reproducibility:** Full source code, including random seeds and environment details, is publicly available at https://github.com/Vupr-QLI/Vupr-QLI-CICIDS2017 to ensure complete reproducibility of all results.
+
+**Suitability for Pattern Recognition:** The work aligns with the journal's focus on novel pattern recognition methodologies with mathematical rigor and significant experimental validation on real-world data.
+
+We confirm that this manuscript is original, has not been published elsewhere, and is not under consideration by another journal. All authors have approved the manuscript and agree with its submission.
+
+Thank you for your consideration. We look forward to your response.
+
+Sincerely,  
+Mohamed ELich  
+On behalf of all authors  
+fempto111@gmail.com 
